@@ -1,0 +1,18 @@
+2026-10-17 03:38:00 | INFO    | Conftest | ========== STARTING TEST: test_login[firefox] ==========
+2026-10-17 03:38:08 | INFO    | Conftest | ========== FINISHED TEST: test_login[firefox] ==========
+
+2026-10-17 03:38:51 | INFO    | Conftest | ========== STARTING TEST: test_login[firefox] ==========
+2026-10-17 03:38:55 | INFO    | Conftest | ========== FINISHED TEST: test_login[firefox] ==========
+
+2026-10-17 03:56:10 | INFO    | Conftest | ========== STARTING TEST: test_login[firefox] ==========
+2026-10-17 03:56:38 | INFO    | Conftest | ========== FINISHED TEST: test_login[firefox] ==========
+
+2026-10-17 03:58:26 | INFO    | Conftest | ========== STARTING TEST: test_login[chromium] ==========
+2026-10-17 03:58:30 | INFO    | Conftest | ========== FINISHED TEST: test_login[chromium] ==========
+
+2026-10-17 16:44:19 | INFO    | Conftest | ========== STARTING TEST: test_login[chromium] ==========
+2026-10-17 16:44:47 | INFO    | Conftest | ========== FINISHED TEST: test_login[chromium] ==========
+
+2026-10-17 16:52:31 | INFO    | Conftest | ========== STARTING TEST: test_login[chromium] ==========
+2026-10-17 16:52:38 | INFO    | Conftest | ========== FINISHED TEST: test_login[chromium] ==========
+
