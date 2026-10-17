@@ -1,7 +1,9 @@
+import os
+
 from playwright.sync_api import Page, expect
 from pages.base_page import BasePage
 from utils.file_utilities import FileUtility
-from utils.env_reader import get_env_variable
+# from utils.env_reader import get_env_variable
 class LoginPage(BasePage):
 
     def __init__(self, page: Page):
@@ -16,9 +18,11 @@ class LoginPage(BasePage):
         
     def login(self, email: str | None = None, password: str | None = None):
         if email is None:
-            email = get_env_variable("EMAIL")
+            # email = get_env_variable("EMAIL")
+            email = os.getenv("EMAIL")
         if password is None:
-            password = get_env_variable("PASSWORD")
+            # password = get_env_variable("PASSWORD")
+            password = os.getenv("PASSWORD")
         self.email_input.fill(email)
         self.password_input.fill(password)
         self.submit_btn.click()

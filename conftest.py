@@ -1,8 +1,9 @@
 # fixtures are there
+import os
 import pytest
 from playwright.sync_api import Page
 from pages.login_page import LoginPage
-from utils.env_reader import get_env_variable
+# from utils.env_reader import get_env_variable
 from utils.logger import get_logger
 
 log = get_logger("Conftest")
@@ -18,7 +19,8 @@ def browser_context_args(browser_context_args):
 
 @pytest.fixture
 def login_page(page: Page) -> LoginPage:
-    base_url = get_env_variable("BASE_URL")
+    # base_url = get_env_variable("BASE_URL")
+    base_url = os.getenv("BASE_URL")
     page.goto(base_url)
     return LoginPage(page)
 
