@@ -36,7 +36,7 @@ jobs:
           TEST_USERNAME: ${{ secrets.EMAIL }}
           TEST_PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          pytest -m --html=reports/report.html --self-contained-html
+          pytest -m auth --html=reports/report.html --self-contained-html
 
     - uses: actions/upload-artifact@v5
       if: ${{ !cancelled() }}
