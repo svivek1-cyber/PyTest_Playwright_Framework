@@ -31,12 +31,12 @@ jobs:
     # - name: Run your tests
     #   run: pytest --tracing=retain-on-failure
     - name: Run Pytest Suite
-        env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          TEST_USERNAME: ${{ secrets.EMAIL }}
-          TEST_PASSWORD: ${{ secrets.PASSWORD }}
-        run: |
-          pytest -m auth --html=reports/report.html --self-contained-html
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        TEST_USERNAME: ${{ secrets.EMAIL }}
+        TEST_PASSWORD: ${{ secrets.PASSWORD }}
+      run: |
+        pytest -m auth --html=reports/report.html --self-contained-html
 
     - uses: actions/upload-artifact@v5
       if: ${{ !cancelled() }}
