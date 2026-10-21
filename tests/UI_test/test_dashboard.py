@@ -11,6 +11,7 @@ def test_login(login_page: LoginPage):
     dashboard_page.verify_dashboard()
     # login_page.page.wait_for_timeout(2000)  # Wait for 2 seconds to observe the dashboard
 
+@pytest.mark.smoke
 def test_login_with_invalid_credentials(login_page: LoginPage):
     file_utility = FileUtility()
     invalid_email = file_utility.read_excel_file("D:\\Desktop\\PlayWright\\PyTest_Playwright_Framework\\test_data\\testdata.xlsx", "LoginPageData", 0, 0)
