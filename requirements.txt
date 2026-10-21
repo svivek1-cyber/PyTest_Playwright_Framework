@@ -3,3 +3,4 @@ pytest-playwright>=0.7.0
 pyyaml>=6.0.2
 python-dotenv>=1.0.1
 pytest-html
+openpyxl>=3.1.2
