@@ -14,16 +14,12 @@ class LoginPage(BasePage):
         self.forget_link = page.get_by_role("link", name="forget password?")
         self.email_input = page.locator("//input[@name='email']")
         self.signup_link = page.get_by_role("link", name="Create an account")
+        self.invalid_credentials_error = page.get_by_text("Incorrect email or password")
         
         
     def login(self, email: str | None = os.getenv("EMAIL"), password: str | None = os.getenv("PASSWORD")):
-        # if email is None:
-        #     email = os.getenv("EMAIL")
         if email is None:
             email = get_env_variable("EMAIL")
-
-        # if password is None:
-        #     password = os.getenv("PASSWORD")
         if password is None:
             password = get_env_variable("PASSWORD")
 

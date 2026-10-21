@@ -1,5 +1,6 @@
 import csv
 from typing import Optional, Union, overload
+import openpyxl
 
 
 class FileUtility:
@@ -97,8 +98,11 @@ class FileUtility:
 
         raise ValueError("Both 'header' and 'row' must be provided together.")
 
+    @staticmethod
     def read_excel_file(file_path: str, sheet: str, row: int, column: int):
-        with open(file_path, mode="r", encoding="utf-8") as file:
-
-            None
-                
+        wb = openpyxl.load_workbook(file_path, data_only=True)
+        try:
+            ws = wb[sheet]
+            return ws.cell(row=row + 1, column=column + 1).value
+        finally:
+            wb.close()
