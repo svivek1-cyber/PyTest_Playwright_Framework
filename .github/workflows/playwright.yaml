@@ -34,7 +34,7 @@ jobs:
         EMAIL: ${{ secrets.EMAIL }}
         PASSWORD: ${{ secrets.PASSWORD }}
       run: |
-        pytest -m auth \
+        pytest -m "auth or regression or smoke" \
           --tracing retain-on-failure \
           --screenshot only-on-failure \
           --video retain-on-failure \
