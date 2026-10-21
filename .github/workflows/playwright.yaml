@@ -1,4 +1,5 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
@@ -6,17 +7,18 @@ on:
     branches: [ main, master ]
   # schedule:
   #   - cron: '0 2 * * *' # Run nightly at 2 AM UTC
-  
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - name: Checkout repository
+      uses: actions/checkout@v6
 
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
         python-version: '3.10.9'
+        cache: 'pip'
 
     - name: Install dependencies
       run: |
@@ -32,10 +34,20 @@ jobs:
         EMAIL: ${{ secrets.EMAIL }}
         PASSWORD: ${{ secrets.PASSWORD }}
       run: |
-        pytest -m auth --html=reports/report.html --self-contained-html
+        pytest -m auth \
+          --tracing retain-on-failure \
+          --screenshot only-on-failure \
+          --video retain-on-failure \
+          --output=test-results \
+          --html=reports/report.html \
+          --self-contained-html
 
-    - uses: actions/upload-artifact@v5
+    - name: Upload Test Report & Artifacts
+      uses: actions/upload-artifact@v5
       if: ${{ !cancelled() }}
       with:
-        name: playwright-traces
-        path: test-results/
+        name: playwright-test-artifacts
+        path: |
+          reports/report.html
+          test-results/
+        if-no-files-found: warn
